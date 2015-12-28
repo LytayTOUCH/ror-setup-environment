@@ -18,6 +18,12 @@ echo -e "---- Update Server ----"
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+#--------------------------------------
+# Install neccessary dependencies packages
+#--------------------------------------
+echo -e "---- Install Neccessary Dependencies Packages Into Server ----"
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev -y
+
 #-----------------------------------------
 # Install Latest Git
 #-----------------------------------------
@@ -25,12 +31,6 @@ echo -e "---- Install Latest Git Into Server ----"
 sudo add-apt-repository ppa:git-core/ppa -y
 sudo apt-get update -y
 sudo apt-get install git -y
-
-#--------------------------------------
-# Install neccessary dependencies packages
-#--------------------------------------
-echo -e "---- Install Neccessary Dependencies Packages Into Server ----"
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev -y
 
 #-----------------------------------------
 # Install RVM with Ruby v2.2.3 & Rails v4.2.5
