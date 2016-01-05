@@ -1,4 +1,4 @@
-# Script to Setting Up RAILS Server
+# Script to Setting Up RAILS Server on Ubuntu Server 15.10
 
 #### Usage
 
