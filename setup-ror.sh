@@ -18,29 +18,21 @@ echo -e "---- Update Server ----"
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-#-----------------------------------------
-# Install Latest Git
-#-----------------------------------------
-echo -e "---- Install Latest Git Into Server ----"
-sudo add-apt-repository ppa:git-core/ppa -y
-sudo apt-get update -y
-sudo apt-get install git -y
-
 #--------------------------------------
 # Install neccessary dependencies packages
 #--------------------------------------
 echo -e "---- Install Neccessary Dependencies Packages Into Server ----"
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev -y
+sudo apt-get install gnupg2 curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev -y
 
 #-----------------------------------------
-# Install RVM with Ruby v2.2.3 & Rails v4.2.5
+# Install RVM with Ruby & Rails
 #-----------------------------------------
-RUBY_VERSION="2.2.3"
-echo -e "---- Install RVM with Ruby v2.2.3 & Rails v4.2.5 Into Server ----"
+RUBY_VERSION="2.5.0"
+RAILS_VERSION="5.2.2"
+echo -e "---- Install RVM with Ruby $RUBY_VERSION & Rails $RAILS_VERSION Into Server ----"
 sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev -y
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 -y
-curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-curl -L https://get.rvm.io | bash -s stable
+gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 echo -e "---- Install Ruby Packages $RUBY_VERSION ----"
 rvm install $RUBY_VERSION
@@ -50,7 +42,6 @@ rvm use $RUBY_VERSION --default
 echo -e "---- Disable Download RDoc of Rails Package ----"
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 
-RAILS_VERSION="4.2.5"
 echo -e "---- Show Gem List ----"
 gem list
 echo -e "---- Install Rails Framework $RAILS_VERSION ----"
