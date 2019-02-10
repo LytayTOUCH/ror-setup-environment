@@ -22,7 +22,8 @@ sudo apt-get upgrade -y
 # Install neccessary dependencies packages
 #--------------------------------------
 echo -e "---- Install Neccessary Dependencies Packages Into Server ----"
-sudo apt-get install gnupg2 curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev -y
+sudo apt install gnupg2 curl -y
+sudo apt-get install curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev -y
 
 #-----------------------------------------
 # Install RVM with Ruby & Rails
